@@ -12,7 +12,7 @@ Step 1: Build the Dockerfile
 2. Add the line
 
    ```
-   FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine
+   FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine
    ```
 
    This says "start with the [.net build tools](https://hub.docker.com/_/microsoft-dotnet-core-sdk/) base image, and use the alpine flavor of it."  The alpine linux distribution is known for being really tiny.
@@ -182,7 +182,7 @@ What is a multi-stage build?  We're going to build two images: one is like the b
 2. Add this line after the `RUN dotnet publish ...` line and before the `WORKDIR /app` line:
 
    ```
-   FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine
+   FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine
    ```
 
    We've started a new section -- a second build stage.  We'll build a second image.  This base image is the .NET Core runtime -- it doesn't include the build tools, so it's much smaller.
@@ -195,10 +195,10 @@ What is a multi-stage build?  We're going to build two images: one is like the b
 
    This line is different from the other copy lines we've written.  This doesn't copy from our computer, it copies from the image stage named `build`.  But `build` doesn't exist yet.
 
-4. At the top of the file, change the `FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine` to this:
+4. At the top of the file, change the `FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine` to this:
 
    ```
-   FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS build
+   FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
    ```
 
    We've now named the top section, so the `COPY --from=build ...` knows where to get the content.
