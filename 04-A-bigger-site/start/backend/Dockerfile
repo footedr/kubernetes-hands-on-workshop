@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
 
 
 # TODO: add the Docker commands to do these build steps:
@@ -11,7 +11,7 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS build
 # from a shell, run `dotnet publish -c Release -o /app`
 
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine
+FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine
 
 ENV ASPNETCORE_URLS http://+:5000
 EXPOSE 5000

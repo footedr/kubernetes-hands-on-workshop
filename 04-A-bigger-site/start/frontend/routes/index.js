@@ -2,7 +2,7 @@ const express = require('express');
 const request = require('request');
 
 // Assume backend ip:
-const BACKEND = 'http://backend:5000';
+const BACKEND = 'http://backend:1234';
 
 let router = express.Router();
 
