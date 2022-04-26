@@ -9,7 +9,7 @@ Here's a network diagram of the application we'll build:
 
 ![A Bigger Site Architecture](architecture.png)
 
-From our browser, we can connect to both http://localhost:4321/ and http://localhost:1234/ to get to the frontend and backend respectively.  The Docker "router" proxies the requests from the WAN (localhost) side to the LAN (172.17.0.x) side.
+From our browser, we can connect to both http://localhost:5002/ and http://localhost:5001/ to get to the frontend and backend respectively.  The Docker "router" proxies the requests from the WAN (localhost) side to the LAN (172.17.0.x) side.
 
 When communicating between containers, we can't use this proxy though.  To communicate from the frontend container to the backend container, we'll need to use LAN names or IPs to communicate between the containers.
 
@@ -26,10 +26,10 @@ Backend
 4. Run this to both start the container and name the container:
 
    ```
-   docker run -d -p 1234:5000 --name backend backend:0.1
+   docker run -d -p 5001:5000 --name backend backend:0.1
    ```
 
-   This says run image `backend:0.1` as container named `backend`, direct host traffic on port 1234 to the container's port 5000, and run detached or in daemon mode.
+   This says run image `backend:0.1` as container named `backend`, direct host traffic on port 5001 to the container's port 5000, and run detached or in daemon mode.
 
 5. Look at the container list and ensure it's running.
 
@@ -39,9 +39,9 @@ Backend
 Frontend
 --------
 
-1. Open `frontend/routes/index.js`.  Note the line that says `const BACKEND = 'http://backend:1234';`  The front-end assumes it can browse to `http://backend:1234/...` to get to the backend.  GOod thing we started the backend container with `--name backen` so this works.
+1. Open `frontend/routes/index.js`.  Note the line that says `const BACKEND = 'http://backend:5000';`  The front-end assumes it can browse to `http://backend:5000/...` to get to the backend.  Good thing we started the backend container with `---name backend` so this works.
 
-   Note: we can't just browse from the front-end container to the backend container inside the Docker network via `http://localhost:1234/` because that's not the address of the backend container inside the Docker network.  From outside the Docker network, Docker is NATing the traffic from localhost.  But inside the network, we don't have this luxury.
+   Note: we can't just browse from the front-end container to the backend container inside the Docker network via `http://localhost:5001/` because that's not the address of the backend container inside the Docker network.  From outside the Docker network, Docker is NATing the traffic from localhost.  But inside the network, we don't have this luxury.
 
 2. Open `frontend/Dockerfile`
 
@@ -52,10 +52,10 @@ Frontend
 5. Run this:
 
    ```
-   docker run -d -p 4321:3000 --link backend frontend:0.1
+   docker run -d -p 5002:3000 --link backend frontend:0.1
    ```
 
-   This starts the front-end container, NATing traffic from port 4321 to port 3000 in the container, and sets up a DNS route to the backend container.  Now `http://backend:1234/...` will resolve correctly.
+   This starts the front-end container, NATing traffic from port 5002 to port 3000 in the container, and sets up a DNS route to the backend container.  Now `http://backend:5000/...` will resolve correctly.
 
 6. Look at the container list and ensure both containers are now running.
 
@@ -63,7 +63,7 @@ Frontend
 Test it out
 -----------
 
-1. Visit [http://localhost:4321/](http://localhost:4321/) to cast your vote.
+1. Visit [http://localhost:5002/](http://localhost:5002/) to cast your vote.
 
 2. Look at the docker logs for each container.
 

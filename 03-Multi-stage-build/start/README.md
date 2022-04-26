@@ -122,7 +122,7 @@ As you work through this section, if you find it doesn't work, look for debuggin
 1. From a command prompt, run
 
    ```
-   docker run -p 5000:5000 -d hellodotnet:0.1
+   docker run -p 5001:5000 -d hellodotnet:0.1
    ```
 
    This says "Run the image named `hellodotnet`, version `0.1` as a container, and NAT the host's port 5000 to port 5000 in the container.  `-d` says "run in daemon mode" or "run in the background".
