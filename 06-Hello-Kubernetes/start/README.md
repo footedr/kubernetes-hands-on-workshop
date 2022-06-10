@@ -1,6 +1,8 @@
 My First Container
 ==================
 
+Approx. Time: 20 min
+
 We're going to run our first container on Kubernetes.
 
 

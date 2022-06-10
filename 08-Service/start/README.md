@@ -1,6 +1,8 @@
 Kubernetes Service
 ==================
 
+Approx. Time: 20 min
+
 Now that we've got a deployment running, let's route traffic into it.
 
 Here's a network diagram of how we typically build out the components in Kubernetes:

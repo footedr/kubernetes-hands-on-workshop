@@ -1,6 +1,8 @@
 Kubernetes Deployment
 =====================
 
+Approx. Time: 20 min
+
 Let's scale up from one pod to many pods.
 
 

@@ -1,6 +1,8 @@
 Delete HelloNode
 ================
 
+Approx. Time: 5 min
+
 We had a blast creating the `hellonode` service, deployment, and pod.  Let's remove them all and get ready to deploy the bigger site.
 
 Deleting

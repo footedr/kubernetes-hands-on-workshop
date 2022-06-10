@@ -1,6 +1,8 @@
 Rolling Update
 ==============
 
+Approx. Time: 20 min
+   
 Let's imagine we need to update the front-end site with zero down-time.
 
 A new requirement has come in.  Instead of "Votes", they want the site to say "Likes".

@@ -35,6 +35,19 @@ Because Docker leverages the OS's virtualization technologies, the install requi
 
 - 64-bit Linux these versions or better: Ubuntu 14.04, Debian 7.7, CentOS 7, or Fedora 24 or better
 
+Lab Times
+---------------
+- 01 - Welcome to Docker slide deck: ~35min (10:00am - 10:40am)
+- 02 - Hello Docker: ~20min (10:40am - 11:00am)
+- 03 - Multi Stage Build: ~30min (11:00 am - 11:30am)
+- 04 - A Bigger Site: ~30min (11:30am - 12:00pm)
+- 05 - Welcome to Kubernetes slide deck: ~35min (12:00pm - 12:40pm)
+- 06 - Hello Kubernetes: ~20min (12:40pm - 1:00pm)
+- 07 - Deployment: ~20min (1:00pm - 1:20pm)
+- 08 - Service: ~20min (1:20pm - 1:40pm)
+- 09 - Delete: ~5min (1:40pm - 1:45pm)
+- 10 - A Bigger Site: ~20min (1:45pm - 2:05pm)
+- 11 - Rolling Update: ~20min (2:05pm - 2:25pm)
 
 Other Resources
 ---------------

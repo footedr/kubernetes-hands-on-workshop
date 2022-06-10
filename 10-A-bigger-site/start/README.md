@@ -1,6 +1,8 @@
 A bigger site
 =============
 
+Approx. Time: 20 min
+
 Welcome to the deep end of the pool.  :D  We're going to take the site from exercise 4, and get it running on Kubernetes.
 
 Here's your challenge: build the deployment.yaml and service.yaml for both frontend and backend so they can communicate.

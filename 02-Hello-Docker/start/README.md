@@ -3,6 +3,8 @@ My First Container
 
 We're going to build our first container as a Linux workload.
 
+Approx. Time: 20 min
+
 
 Step 0: Clone this repository
 -----------------------------
